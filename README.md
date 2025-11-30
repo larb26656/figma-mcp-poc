@@ -1,73 +1,36 @@
-# React + TypeScript + Vite
+# figma-mcp-poc
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + TypeScript + Vite proof-of-concept that recreates an Apple Intelligence-style landing page and an Apple Pay button showcase. Built as a lightweight demo for MCP/Figma-driven UI work.
 
-Currently, two official plugins are available:
+## What’s inside
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React 19 with React Router for two routes (`/` and `/component`)
+- Tailored Apple-inspired layout in `src/App.tsx` with hero, OS sections, and footer
+- Apple Pay button variants rendered from presets in `src/components/ApplePayButton.tsx`
+- Vite toolchain with TypeScript and ESLint 9
 
-## React Compiler
+## Quick start
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Install dependencies  
+   `npm install`
 
-## Expanding the ESLint configuration
+2. Run the dev server (Vite)  
+   `npm run dev`
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+3. Open the app  
+   Visit the URL printed in the terminal (default http://localhost:5173).  
+   Routes:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- `/` — Apple Intelligence landing experience
+- `/component` — Apple Pay button presets grid
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Scripts
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- `npm run dev` — start Vite in dev mode
+- `npm run build` — type-check then build to `dist`
+- `npm run preview` — preview the production build
+- `npm run lint` — run ESLint
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Notes
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Global styles live in `src/App.css` and `src/index.css`; the component showcase adds `src/pages/ComponentShowcase.css`.
